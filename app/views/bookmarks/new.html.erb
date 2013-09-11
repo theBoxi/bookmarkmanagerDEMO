@@ -1,2 +1,22 @@
+<% @title = "erstellen" %>
 <h2>Neuen Favoriten erstellen</h2>
-<p>Find me in app/views/bookmarks/new.html.erb</p>
+<%= form_for(@bookmark) do |f| %>
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+    </p>
+    <p>
+      <%= f.label :comment %>
+      <%= f.text_erea :comment %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+<p>
+  <%= link_to "Zurück zur Liste", bookmarks_path %>
+</p>

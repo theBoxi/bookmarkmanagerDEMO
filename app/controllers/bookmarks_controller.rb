@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class BookmarksController < ApplicationController
   def index
     @bookmarks = Bookmark.all
@@ -14,7 +16,7 @@ class BookmarksController < ApplicationController
   def update
     @bookmark = Bookmark.find(params[:id])
     if @bookmark.update_attributes(params[:bookmark])
-      redirect_to bookmarks_path
+      redirect_to bookmarks_path, notice: 'Link wurde erfolgreich angelegt!'
     else
       render "edit"
     end
@@ -27,7 +29,7 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = Bookmark.new(params[:bookmark])
     if @bookmark.save
-      redirect_to bookmarks_path
+      redirect_to bookmarks_path, notice: 'Link wurde erfolgreich erstellt!'
     else
       render "new"
     end
@@ -36,6 +38,6 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to bookmarks_url
+    redirect_to bookmarks_url, notice: 'Link wurde erfolgreich gelöscht!'
   end
 end

@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+    <p>
+      <%= link_to "Maine Bookmarks", bookmarks_path %>
+    </p>
+<% else %>
+    <p>
+      <%= link_to "Benutzerkonto anlegen", new_user_path %><br/>
+      <%= link_to "login", login_path %>
+    </p>
+<% end %>

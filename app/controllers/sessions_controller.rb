@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to bookmarks_path, notice: "Sie haben sich abgemeldet!"
+    redirect_to root_path, notice: "Sie haben sich abgemeldet!"
   end
 
 end
